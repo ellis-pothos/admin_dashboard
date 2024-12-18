@@ -1,12 +1,23 @@
 body {
     display: grid; 
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
 }
 
 .dashboard {
     grid-area: 1/1/3/2;
-    background-color: blue;
+    background-color: rgb(0, 183, 255);
+}
+
+.dashboard > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    list-style-type: none;
+}
+
+.dashboard > ul > li > img {
+    width: 20px;
 }
 
 .header {
@@ -14,7 +25,50 @@ body {
     background-color: antiquewhite;
 }
 
+.top_header {
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr 1fr 2fr;
+}
+
+.top_header > img {
+    width: 20px;
+}
+
+.main_header {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
 .main_content {
     grid-area: 2/2/3/3;
     background-color: grey;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.your_projects {
+    grid-area: 1/1/3/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: antiquewhite;
+}
+
+.trending, 
+.announcements {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.trending {
+    grid-area: 2/2/3/3;
 }
