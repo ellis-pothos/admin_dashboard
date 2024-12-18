@@ -1,4 +1,9 @@
+:root {
+    --dashboard_blue: rgb(0, 183, 255);
+}
+
 body {
+    margin: 0;
     display: grid; 
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 5fr;
@@ -6,12 +11,22 @@ body {
 
 .dashboard {
     grid-area: 1/1/3/2;
-    background-color: rgb(0, 183, 255);
+    background-color: var(--dashboard_blue);
+}
+
+.dashboard > p {
+    padding: 1rem;
+}
+
+.dashboard > p > img {
+    width: 50px;
 }
 
 .dashboard > ul {
+    padding: 1rem;
+    margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: auto;
     list-style-type: none;
 }
@@ -41,34 +56,67 @@ body {
 }
 
 .main_content {
+    /* is inside the body grid */
     grid-area: 2/2/3/3;
-    background-color: grey;
+    padding: 20px;
+    
+    /* background-color: grey; */
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr;
 }
 
 .your_projects {
+    /* is inside the main_content grid */
+    padding-right: 2rem; 
     grid-area: 1/1/3/2;
+    
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(200px, 500px));
     grid-template-rows: 1fr 1fr 1fr;
     gap: 15px;
 }
 
 .card {
-    width: 150px;
-    height: 150px;
     background-color: antiquewhite;
-}
-
-.trending, 
-.announcements {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    box-shadow: 7px 7px 5px var(--dashboard_blue);
 }
 
 .trending {
+    /* inside main_content grid */
     grid-area: 2/2/3/3;
+}
+
+.announcements {
+    /* inside main_content grid */
+    grid-area: 1/2/2/3;
+}
+
+.rightcontainer {
+    /* inside main_content grid */
+    /* contains divs of both Announcements and Trending */  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+}
+
+.rightcontainer > :not(div:last-child) {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: black;
+}
+
+.announcements > .rightcontainer {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.trending > .rightcontainer > div > img {
+    width: 2rem;
+    padding-right: 0.5rem;
 }
